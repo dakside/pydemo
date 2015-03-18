@@ -5,6 +5,10 @@
 # The first line of the application helps the OS to figure out how to run the application (i.e. using Python)
 # The second line specifies the encoding used in this file.
 # If you still have no idea, just copy those two to your file :P
+# To run this file, you can try:
+# python helloworld.py
+# ./helloworld.py
+
 
 #------------------------------------------------------------------------------
 # Define the main method
