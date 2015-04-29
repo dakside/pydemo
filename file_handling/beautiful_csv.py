@@ -95,7 +95,8 @@ def process_file(inputfilename, outputfilename, verbose=True):
 	'''Count the number of lines in a file if it exists (return -1 if file doesn't exist)
 	
 	Arguments:
-		filename -- Path to the file to be processed
+		inputfilename -- Path to the file to be processed
+		outputfilename - output which contains the formatted data
 	
 	Return -1 if the file cannot be found
 	'''
