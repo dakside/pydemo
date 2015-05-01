@@ -37,7 +37,11 @@ __email__ = "<dc.hoang.vn@gmail.com>"
 __status__ = "Prototype"
 
 import csv
+import sys
+import os
+import argparse
 
+########################################################################
 def is_number(s):
 	''' check if a string is a float
 	
@@ -50,6 +54,7 @@ def is_number(s):
 	except ValueError:
 		return False
 
+########################################################################
 def beautifulize(in_file_path,out_file_path):
 	''' Read a CSV file and format the data and then write the output to another 
 	file.
@@ -59,6 +64,7 @@ def beautifulize(in_file_path,out_file_path):
 	out_file_path -- output which contains the formatted data
 	'''
 	maxlengths = []
+	linecount = 0
 	with open(in_file_path,'r') as csvfile:
 		csvreader = csv.reader(csvfile,delimiter='\t',quotechar='"',quoting=csv.QUOTE_MINIMAL)
 		for row in csvreader:
@@ -67,6 +73,7 @@ def beautifulize(in_file_path,out_file_path):
 			for idx, val in enumerate(row):
 				if len(val) > maxlengths[idx]:
 					maxlengths[idx] = len(val)
+			linecount += 1
 			print(row)
 		print(maxlengths)
 	
@@ -80,7 +87,30 @@ def beautifulize(in_file_path,out_file_path):
 					else:
 						row[idx] += " " * (maxlengths[idx] - len(val))
 			print(row)
-	pass
+	return linecount
+	#pass
+
+########################################################################
+def process_file(inputfilename, outputfilename, verbose=True):
+	'''Count the number of lines in a file if it exists (return -1 if file doesn't exist)
+	
+	Arguments:
+		inputfilename -- Path to the file to be processed
+		outputfilename - output which contains the formatted data
+	
+	Return -1 if the file cannot be found
+	'''
+	length_of_file = -1
+	if os.path.isfile(inputfilename):
+		length_of_file = beautifulize(inputfilename, outputfilename)
+		if verbose:
+			print("Verbose mode - Length of file: %d", length_of_file)
+	else:
+		if verbose:
+			print("Verbose mode - Length of file: %d", length_of_file)
+		else:
+			print("I cannot find the file [%s]" % (inputfilename,))
+	return length_of_file
 
 #------------------------------------------------------------------------------
 # Define the main method
@@ -88,7 +118,22 @@ def beautifulize(in_file_path,out_file_path):
 def main():
 	'''The main entry of the application (i.e. The tasks should start from here)
 	'''
-	beautifulize('test.csv','test.beautiful.csv')
+	
+	parser = argparse.ArgumentParser(description="Allign table in csv file to beautifulize.")
+	parser.add_argument('inputfilepath', help='The path to the file that you want to process.')
+	parser.add_argument('outputfilepath', help='Output file you want to save processed data ')
+	group = parser.add_mutually_exclusive_group()
+	group.add_argument("-v", "--verbose", action="store_true")
+
+	if len(sys.argv) <3:
+		# User didn't pass any value in, show help
+		parser.print_help()
+	else:
+		args = parser.parse_args()
+		if args.inputfilepath:
+			if args.outputfilepath:
+				process_file(args.inputfilepath, args.outputfilepath, args.verbose)
+			
 	pass # Do nothing, yes Python has a statement to do nothing :D
 
 #------------------------------------------------------------------------------
