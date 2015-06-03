@@ -7,6 +7,7 @@
 # If you still have no idea, just copy those two to your file :P
 # To run this file, you can try:
 # python helloworld.py
+# or 
 # ./helloworld.py
 
 
