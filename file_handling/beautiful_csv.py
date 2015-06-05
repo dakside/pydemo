@@ -103,7 +103,7 @@ def beautifulize(in_file_path,out_file_path):
 		else:
 			with open(in_file_path,'r') as csvfile:	
 				csvreader = csv.reader(csvfile,delimiter='\t',quotechar='"',quoting=csv.QUOTE_MINIMAL)
-				with open(out_file_path,'w',newline='') as csvfileout:
+				with open(out_file_path,'w') as csvfileout:
 					csvwriter = csv.writer(csvfileout)
 					for row in csvreader:
 						for idx, val in enumerate(row):
@@ -115,7 +115,7 @@ def beautifulize(in_file_path,out_file_path):
 						csvwriter.writerow(row)
 						print(row)
 	except Exception as err:
-		print('Cannot write to the output file %s' % output_file_path)
+		print('Cannot write to the output file %s' % out_file_path)
 		print(err)
 		return linecount
 	
