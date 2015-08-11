@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-A template for writing Python application with MIT license.
+A sample app.
 Latest version can be found at https://github.com/letuananh/pydemo
 
 References:
@@ -50,11 +50,7 @@ __status__ = "Prototype"
 import sys
 import os
 import argparse
-
-########################################################################
-
-def echo(input_str):
-	print(input_str)
+from daklib.demolib import authenticate
 
 ########################################################################
 
@@ -67,7 +63,8 @@ def main():
 	parser = argparse.ArgumentParser(description="Display a line of text.")
 	
 	# Positional argument(s)
-	parser.add_argument('input', help='The string to be printed.')
+	parser.add_argument('username', help='Your username')
+	parser.add_argument('password', help='Your password')
 
 	# Optional argument(s)
 	group = parser.add_mutually_exclusive_group()
@@ -84,10 +81,12 @@ def main():
 		# Now do something ...
 		if args.verbose:
 			print("You have activated my talkative mode ...")
-		if args.input:
-			echo(args.input)
-		elif not args.quiet:
-			print("Eh, I have nothing to print (You can shut me up by passing in the option -q) ...")
+		# ---
+		if authenticate(args.username, args.password):
+			print("You are logged in")
+		else:
+			print("Invalid credential")
+		# ---
 		if args.verbose:
 			print("Bye sweetie ...")
 	pass

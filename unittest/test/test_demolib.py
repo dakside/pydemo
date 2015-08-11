@@ -2,12 +2,15 @@
 # -*- coding: utf-8 -*-
 
 '''
-A template for writing Python application with MIT license.
+Script for testing daklib.demolib library
 Latest version can be found at https://github.com/letuananh/pydemo
 
 References:
 	Python documentation:
 		https://docs.python.org/
+	Python unittest
+		https://docs.python.org/3/library/unittest.html
+	--
 	argparse module:
 		https://docs.python.org/3/howto/argparse.html
 	PEP 257 - Python Docstring Conventions:
@@ -50,47 +53,42 @@ __status__ = "Prototype"
 import sys
 import os
 import argparse
+import unittest
+from daklib.demolib import authenticate
 
 ########################################################################
 
-def echo(input_str):
-	print(input_str)
+class TestDemoLib(unittest.TestCase):
+
+	def test_null_args(self):
+		print("Testing authenticate function with empty args")
+		username=None
+		password=None
+		self.assertFalse(authenticate(username, password))
+
+	def test_null_username(self):
+		print("Testing authenticate function with empty username")
+		username=None
+		password='enoN'
+		self.assertFalse(authenticate(username, password))
+
+	def test_null_password(self):
+		print("Testing authenticate function with empty password")
+		username='None'
+		password=None
+		self.assertFalse(authenticate(username, password))
+
+	def test_valid_login(self):
+		print("Testing valid combination")
+		username='foo'
+		password='oof'
+		self.assertTrue(authenticate(username, password))
+
 
 ########################################################################
 
 def main():
-	'''Main entry of this demo application.
-	'''
-
-	# It's easier to create a user-friendly console application by using argparse
-	# See reference at the top of this script
-	parser = argparse.ArgumentParser(description="Display a line of text.")
-	
-	# Positional argument(s)
-	parser.add_argument('input', help='The string to be printed.')
-
-	# Optional argument(s)
-	group = parser.add_mutually_exclusive_group()
-	group.add_argument("-v", "--verbose", action="store_true")
-	group.add_argument("-q", "--quiet", action="store_true")
-
-	# Main script
-	if len(sys.argv) == 1:
-		# User didn't pass any value in, show help
-		parser.print_help()
-	else:
-		# Parse input arguments
-		args = parser.parse_args()
-		# Now do something ...
-		if args.verbose:
-			print("You have activated my talkative mode ...")
-		if args.input:
-			echo(args.input)
-		elif not args.quiet:
-			print("Eh, I have nothing to print (You can shut me up by passing in the option -q) ...")
-		if args.verbose:
-			print("Bye sweetie ...")
-	pass
+	unittest.main()
 
 if __name__ == "__main__":
 	main()
