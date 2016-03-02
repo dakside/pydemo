@@ -7,9 +7,9 @@ Latest version can be found at https://github.com/letuananh/pydemo
 
 References:
 argparse module:
-	https://docs.python.org/2/howto/argparse.html
+    https://docs.python.org/2/howto/argparse.html
 PEP 257 - Python Docstring Conventions:
-	https://www.python.org/dev/peps/pep-0257/
+    https://www.python.org/dev/peps/pep-0257/
 
 @author: Le Tuan Anh <tuananh.ke@gmail.com>
 '''
@@ -52,51 +52,51 @@ import argparse
 ########################################################################
 
 def count_lines(filename, quiet=True):
-	'''Count the number of lines in a file if it exists (return -1 if file doesn't exist)
-	
-	Arguments:
-		filename -- Path to the file to be processed
-	
-	Return -1 if the file cannot be found
-	'''
-	length_of_file = -1
-	if os.path.isfile(filename):
-		with open(filename) as infile:
-			length_of_file = len(infile.readlines())
-			if quiet:
-				print(length_of_file)
-			else:
-				print("File [%s] has [%s] line(s)." % (filename, length_of_file))
-	else:
-		if quiet:
-			print(length_of_file)
-		else:
-			print("I cannot find the file [%s]" % (filename,))
-	return length_of_file
+    '''Count the number of lines in a file if it exists (return -1 if file doesn't exist)
+    
+    Arguments:
+        filename -- Path to the file to be processed
+    
+    Return -1 if the file cannot be found
+    '''
+    length_of_file = -1
+    if os.path.isfile(filename):
+        with open(filename) as infile:
+            length_of_file = len(infile.readlines())
+            if quiet:
+                print(length_of_file)
+            else:
+                print("File [%s] has [%s] line(s)." % (filename, length_of_file))
+    else:
+        if quiet:
+            print(length_of_file)
+        else:
+            print("I cannot find the file [%s]" % (filename,))
+    return length_of_file
 
 ########################################################################
 
 def main():
-	'''Main entry of this demo application.
-	'''
-	parser = argparse.ArgumentParser(description="Count number of lines in a file.")
-	parser.add_argument('filepath', help='The path to the file that you want to process.')
-	group = parser.add_mutually_exclusive_group()
-	group.add_argument("-v", "--verbose", action="store_true")
-	group.add_argument("-q", "--quiet", action="store_true")
+    '''Main entry of this demo application.
+    '''
+    parser = argparse.ArgumentParser(description="Count number of lines in a file.")
+    parser.add_argument('filepath', help='The path to the file that you want to process.')
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("-v", "--verbose", action="store_true")
+    group.add_argument("-q", "--quiet", action="store_true")
 
-	if len(sys.argv) == 1:
-		# User didn't pass any value in, show help
-		parser.print_help()
-	else:
-		args = parser.parse_args()
-		if args.verbose:
-			print("You have activated my talkative mode ...")
-		if args.filepath:
-			count_lines(args.filepath, args.quiet)
-		if args.verbose:
-			print("Bye sweetie ...")
-	pass
+    if len(sys.argv) == 1:
+        # User didn't pass any value in, show help
+        parser.print_help()
+    else:
+        args = parser.parse_args()
+        if args.verbose:
+            print("You have activated my talkative mode ...")
+        if args.filepath:
+            count_lines(args.filepath, args.quiet)
+        if args.verbose:
+            print("Bye sweetie ...")
+    pass
 
 if __name__ == "__main__":
-	main()
+    main()

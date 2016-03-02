@@ -7,7 +7,7 @@ Latest version can be found at https://github.com/letuananh/pydemo
 
 References:
 Classes in Python:
-	https://docs.python.org/2/tutorial/classes.html
+    https://docs.python.org/2/tutorial/classes.html
 
 @author: Le Tuan Anh <tuananh.ke@gmail.com>
 '''
@@ -48,73 +48,73 @@ import logging
 ########################################################################
 
 class Classroom:
-	''' This class represents a classroom model. Each class has its own code and a group of students.
-	'''
-	def __init__(self, class_code):
-		self.students   = []
-		self.class_code = class_code
+    ''' This class represents a classroom model. Each class has its own code and a group of students.
+    '''
+    def __init__(self, class_code):
+        self.students   = []
+        self.class_code = class_code
 
-	def add(self, student):
-		''' This method will add an existing student into this classroom
-		'''
-		self.students.append(student)
+    def add(self, student):
+        ''' This method will add an existing student into this classroom
+        '''
+        self.students.append(student)
 
-	def __repr__(self):
-		''' This method will print details of a classroom object 
-		'''
-		return "Classroom{code='%s',Students=%s}" % (self.class_code, self.students)
+    def __repr__(self):
+        ''' This method will print details of a classroom object 
+        '''
+        return "Classroom{code='%s',Students=%s}" % (self.class_code, self.students)
 
-	def __str__(self):
-		''' A shorter & more human friendly way of printing an object
-		'''
-		return "Classroom %s" % (self.class_code)
+    def __str__(self):
+        ''' A shorter & more human friendly way of printing an object
+        '''
+        return "Classroom %s" % (self.class_code)
 
 
 class Student:
-	''' Each student object has a name and age.
-	'''
+    ''' Each student object has a name and age.
+    '''
 
-	def __init__(self, name, age):
-		self.name = name
-		self.age  = age
+    def __init__(self, name, age):
+        self.name = name
+        self.age  = age
 
-	def __repr__(self):
-		return "Student{name='%s',age=%s}" % (self.name, self.age)
+    def __repr__(self):
+        return "Student{name='%s',age=%s}" % (self.name, self.age)
 
-	def __str__(self):
-		return "Student %s" % (self.name)
+    def __str__(self):
+        return "Student %s" % (self.name)
 
 #----------------------------------------------------------------------------
 # Define the main method
 #------------------------------------------------------------------------------
 def main():
-	'''The main entry of the application (i.e. The tasks should start from here)
-	'''
-	
-	# Create a classroom
-	c = Classroom("Philosophy 101")
-	print("%s is created." % c)
+    '''The main entry of the application (i.e. The tasks should start from here)
+    '''
+    
+    # Create a classroom
+    c = Classroom("Philosophy 101")
+    print("%s is created." % c)
 
-	# ... now we create students
-	descartes = Student("Rene Descartes", 419)
-	nietzsche = Student("Friedrich Nietzsche", 171)
-	print("%s is created." % descartes)
-	print("%s is created." % nietzsche)
+    # ... now we create students
+    descartes = Student("Rene Descartes", 419)
+    nietzsche = Student("Friedrich Nietzsche", 171)
+    print("%s is created." % descartes)
+    print("%s is created." % nietzsche)
 
-	# ... add the students to the classroom
-	c.add(descartes)
-	c.add(nietzsche)
+    # ... add the students to the classroom
+    c.add(descartes)
+    c.add(nietzsche)
 
-	# Bonus: You can use repr to get deeper information, this can be useful for debugging
-	print("-" * 20)
-	print(repr(c))
-	logging.info(repr(c))
+    # Bonus: You can use repr to get deeper information, this can be useful for debugging
+    print("-" * 20)
+    print(repr(c))
+    logging.info(repr(c))
 
-	pass
+    pass
 
 #------------------------------------------------------------------------------
 # Check if this file is run as an application
 #------------------------------------------------------------------------------
 if __name__ == "__main__":
-	# If the condition is true, execute the main method
-	main()
+    # If the condition is true, execute the main method
+    main()

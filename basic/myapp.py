@@ -6,12 +6,12 @@ Demo app which calls a library
 Latest version can be found at https://github.com/letuananh/pydemo
 
 References:
-	Python documentation:
-		https://docs.python.org/
-	argparse module:
-		https://docs.python.org/3/howto/argparse.html
-	PEP 257 - Python Docstring Conventions:
-		https://www.python.org/dev/peps/pep-0257/
+    Python documentation:
+        https://docs.python.org/
+    argparse module:
+        https://docs.python.org/3/howto/argparse.html
+    PEP 257 - Python Docstring Conventions:
+        https://www.python.org/dev/peps/pep-0257/
 
 @author: Le Tuan Anh <tuananh.ke@gmail.com>
 '''
@@ -58,16 +58,16 @@ from mylib import uberfunction
 ########################################################################
 
 def main():
-	'''Main entry of this demo application.
-	'''
-	print("myapp.main's __name__: %s" % (__name__))
-	uberfunction("myapp.main")
-	
-	# We can call the main method in mylib as well
-	from mylib import main as mylibmain
-	mylibmain()
-	
-	pass
+    '''Main entry of this demo application.
+    '''
+    print("myapp.main's __name__: %s" % (__name__))
+    uberfunction("myapp.main")
+    
+    # We can call the main method in mylib as well
+    from mylib import main as mylibmain
+    mylibmain()
+    
+    pass
 
 if __name__ == "__main__":
-	main()
+    main()

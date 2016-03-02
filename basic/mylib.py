@@ -6,12 +6,12 @@ Demo library
 Latest version can be found at https://github.com/letuananh/pydemo
 
 References:
-	Python documentation:
-		https://docs.python.org/
-	argparse module:
-		https://docs.python.org/3/howto/argparse.html
-	PEP 257 - Python Docstring Conventions:
-		https://www.python.org/dev/peps/pep-0257/
+    Python documentation:
+        https://docs.python.org/
+    argparse module:
+        https://docs.python.org/3/howto/argparse.html
+    PEP 257 - Python Docstring Conventions:
+        https://www.python.org/dev/peps/pep-0257/
 
 @author: Le Tuan Anh <tuananh.ke@gmail.com>
 '''
@@ -57,16 +57,16 @@ import argparse
 print("mylib.py is loaded | __name__: %s" % (__name__))
 
 def uberfunction(caller):
-	print("uberfunction called by [%s] __name__: %s" % (caller, __name__))
+    print("uberfunction called by [%s] __name__: %s" % (caller, __name__))
 
 ########################################################################
 
 def main():
-	''' Main entry of this demo application.
-	This will NOT be called when used as a module.
-	'''
-	uberfunction("mylib.main")
-	pass
+    ''' Main entry of this demo application.
+    This will NOT be called when used as a module.
+    '''
+    uberfunction("mylib.main")
+    pass
 
 if __name__ == "__main__":
-	main()
+    main()

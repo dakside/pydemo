@@ -6,12 +6,12 @@ A sample app.
 Latest version can be found at https://github.com/letuananh/pydemo
 
 References:
-	Python documentation:
-		https://docs.python.org/
-	argparse module:
-		https://docs.python.org/3/howto/argparse.html
-	PEP 257 - Python Docstring Conventions:
-		https://www.python.org/dev/peps/pep-0257/
+    Python documentation:
+        https://docs.python.org/
+    argparse module:
+        https://docs.python.org/3/howto/argparse.html
+    PEP 257 - Python Docstring Conventions:
+        https://www.python.org/dev/peps/pep-0257/
 
 @author: Le Tuan Anh <tuananh.ke@gmail.com>
 '''
@@ -55,41 +55,41 @@ from uberapp.daklib.demolib import authenticate
 ########################################################################
 
 def main():
-	'''Main entry of this demo application.
-	'''
+    '''Main entry of this demo application.
+    '''
 
-	# It's easier to create a user-friendly console application by using argparse
-	# See reference at the top of this script
-	parser = argparse.ArgumentParser(description="Display a line of text.")
-	
-	# Positional argument(s)
-	parser.add_argument('username', help='Your username')
-	parser.add_argument('password', help='Your password')
+    # It's easier to create a user-friendly console application by using argparse
+    # See reference at the top of this script
+    parser = argparse.ArgumentParser(description="Display a line of text.")
+    
+    # Positional argument(s)
+    parser.add_argument('username', help='Your username')
+    parser.add_argument('password', help='Your password')
 
-	# Optional argument(s)
-	group = parser.add_mutually_exclusive_group()
-	group.add_argument("-v", "--verbose", action="store_true")
-	group.add_argument("-q", "--quiet", action="store_true")
+    # Optional argument(s)
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("-v", "--verbose", action="store_true")
+    group.add_argument("-q", "--quiet", action="store_true")
 
-	# Main script
-	if len(sys.argv) == 1:
-		# User didn't pass any value in, show help
-		parser.print_help()
-	else:
-		# Parse input arguments
-		args = parser.parse_args()
-		# Now do something ...
-		if args.verbose:
-			print("You have activated my talkative mode ...")
-		# ---
-		if authenticate(args.username, args.password):
-			print("You are logged in")
-		else:
-			print("Invalid credential")
-		# ---
-		if args.verbose:
-			print("Bye sweetie ...")
-	pass
+    # Main script
+    if len(sys.argv) == 1:
+        # User didn't pass any value in, show help
+        parser.print_help()
+    else:
+        # Parse input arguments
+        args = parser.parse_args()
+        # Now do something ...
+        if args.verbose:
+            print("You have activated my talkative mode ...")
+        # ---
+        if authenticate(args.username, args.password):
+            print("You are logged in")
+        else:
+            print("Invalid credential")
+        # ---
+        if args.verbose:
+            print("Bye sweetie ...")
+    pass
 
 if __name__ == "__main__":
-	main()
+    main()

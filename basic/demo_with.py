@@ -6,18 +6,18 @@ Demo with statement of Python.
 Latest version can be found at https://github.com/letuananh/pydemo
 
 References:
-	Python documentation:
-		https://docs.python.org/
-	PEP 343 - ``with'' statement
-		https://www.python.org/dev/peps/pep-0343/
-	PEP 257 - Python Docstring Conventions:
-		https://www.python.org/dev/peps/pep-0257/
-	---
-	Jeff Preshing's tutorial:
-		http://preshing.com/20110920/the-python-with-statement-by-example/
-	Fredrik Lundh's tutorial:
-		http://effbot.org/zone/python-with-statement.htm
-	
+    Python documentation:
+        https://docs.python.org/
+    PEP 343 - ``with'' statement
+        https://www.python.org/dev/peps/pep-0343/
+    PEP 257 - Python Docstring Conventions:
+        https://www.python.org/dev/peps/pep-0257/
+    ---
+    Jeff Preshing's tutorial:
+        http://preshing.com/20110920/the-python-with-statement-by-example/
+    Fredrik Lundh's tutorial:
+        http://effbot.org/zone/python-with-statement.htm
+    
 
 @author: Le Tuan Anh <tuananh.ke@gmail.com>
 '''
@@ -60,62 +60,62 @@ import argparse
 ########################################################################
 
 class SmartDB:
-	''' A sample database class that support with statement
-	'''
-	def __init__(self, info):
-		print("__init__")
-		self.info = info
-		self.state = ''
-		self.set_state('new')
+    ''' A sample database class that support with statement
+    '''
+    def __init__(self, info):
+        print("__init__")
+        self.info = info
+        self.state = ''
+        self.set_state('new')
 
-	def set_state(self, state):
-		old_state = self.state
-		self.state = state
-		print("\tStated changed from [%s] to [%s]" % (old_state, state))
+    def set_state(self, state):
+        old_state = self.state
+        self.state = state
+        print("\tStated changed from [%s] to [%s]" % (old_state, state))
 
-	def select(self):
-		''' Mock-up select data
-		'''
-		self.set_state('selecting data')
-		data = 'foo'
-		self.set_state('idle')
-		return data
+    def select(self):
+        ''' Mock-up select data
+        '''
+        self.set_state('selecting data')
+        data = 'foo'
+        self.set_state('idle')
+        return data
 
 
-	def close(self):
-		''' Close database connection
-		'''
-		self.set_state('closed')
+    def close(self):
+        ''' Close database connection
+        '''
+        self.set_state('closed')
 
-	def __enter__(self):
-		''' Enter with statement
-		'''
-		print("__enter__")
-		self.set_state('running')
-		return self
+    def __enter__(self):
+        ''' Enter with statement
+        '''
+        print("__enter__")
+        self.set_state('running')
+        return self
 
-	def __exit__(self, type, value, traceback):
-		''' Exit with statement, clean up resource, etc.
-		'''
-		try:
-			print("__exit__")
-			self.set_state('closing')
-			self.close()
-		except Exception as e:
-			print("Error: {0}".format(err))
+    def __exit__(self, type, value, traceback):
+        ''' Exit with statement, clean up resource, etc.
+        '''
+        try:
+            print("__exit__")
+            self.set_state('closing')
+            self.close()
+        except Exception as e:
+            print("Error: {0}".format(err))
 
 #------------------------------------------------------------------------------
 
 def main():
-	'''Main entry of this demo application.
-	'''
-	print("main()")
-	with SmartDB('foo') as db:
-		print("__with__")
-		print("\t* Data = %s" % db.select())
-	print("Done!")	
+    '''Main entry of this demo application.
+    '''
+    print("main()")
+    with SmartDB('foo') as db:
+        print("__with__")
+        print("\t* Data = %s" % db.select())
+    print("Done!")  
 
-	pass
+    pass
 
 if __name__ == "__main__":
-	main()
+    main()
