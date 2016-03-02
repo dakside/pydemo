@@ -10,7 +10,9 @@ References:
         https://docs.python.org/
     argparse module:
         https://docs.python.org/3/howto/argparse.html
-    PEP 257 - Python Docstring Conventions:
+    PEP 0008 - Style Guide for Python Code
+        https://www.python.org/dev/peps/pep-0008/
+    PEP 0257 - Python Docstring Conventions:
         https://www.python.org/dev/peps/pep-0257/
 
 @author: Le Tuan Anh <tuananh.ke@gmail.com>
