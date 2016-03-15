@@ -6,15 +6,15 @@ A sample Python library to demonstrate basic unit testting
 Latest version can be found at https://github.com/letuananh/pydemo
 
 References:
-	Python documentation:
-		https://docs.python.org/
-	Python unittest
-		https://docs.python.org/3/library/unittest.html
-	--
-	argparse module:
-		https://docs.python.org/3/howto/argparse.html
-	PEP 257 - Python Docstring Conventions:
-		https://www.python.org/dev/peps/pep-0257/
+    Python documentation:
+        https://docs.python.org/
+    Python unittest
+        https://docs.python.org/3/library/unittest.html
+    --
+    argparse module:
+        https://docs.python.org/3/howto/argparse.html
+    PEP 257 - Python Docstring Conventions:
+        https://www.python.org/dev/peps/pep-0257/
 
 @author: Le Tuan Anh <tuananh.ke@gmail.com>
 '''
@@ -59,15 +59,15 @@ import argparse
 usernames = [ 'foo', 'boo', 'bar' ]
 
 def authenticate(username, password):
-	if password is None or username not in usernames:
-		return False
-	else:
-		return password == username[::-1]
+    if password is None or username not in usernames:
+        return False
+    else:
+        return password == username[::-1]
 
 ########################################################################
 
 def main():
-	print("I'm a library, not an app")
+    print("I'm a library, not an app")
 
 if __name__ == "__main__":
-	main()
+    main()

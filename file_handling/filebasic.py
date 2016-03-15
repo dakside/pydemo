@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 '''
@@ -67,6 +67,7 @@ def read_names_from_file(file_name):
 def main():
     '''This application will demonstrate how to read and write text file content with Python
     '''
+
     girl_names = read_names_from_file('data/girl_names_2014.txt')
     boy_names = read_names_from_file('data/boy_names_2014.txt')
 

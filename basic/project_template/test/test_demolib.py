@@ -6,15 +6,15 @@ Script for testing daklib.demolib library
 Latest version can be found at https://github.com/letuananh/pydemo
 
 References:
-	Python documentation:
-		https://docs.python.org/
-	Python unittest
-		https://docs.python.org/3/library/unittest.html
-	--
-	argparse module:
-		https://docs.python.org/3/howto/argparse.html
-	PEP 257 - Python Docstring Conventions:
-		https://www.python.org/dev/peps/pep-0257/
+    Python documentation:
+        https://docs.python.org/
+    Python unittest
+        https://docs.python.org/3/library/unittest.html
+    --
+    argparse module:
+        https://docs.python.org/3/howto/argparse.html
+    PEP 257 - Python Docstring Conventions:
+        https://www.python.org/dev/peps/pep-0257/
 
 @author: Le Tuan Anh <tuananh.ke@gmail.com>
 '''
@@ -60,35 +60,35 @@ from uberapp.daklib.demolib import authenticate
 
 class TestDemoLib(unittest.TestCase):
 
-	def test_null_args(self):
-		print("Testing authenticate function with empty args")
-		username=None
-		password=None
-		self.assertFalse(authenticate(username, password))
+    def test_null_args(self):
+        print("Testing authenticate function with empty args")
+        username=None
+        password=None
+        self.assertFalse(authenticate(username, password))
 
-	def test_null_username(self):
-		print("Testing authenticate function with empty username")
-		username=None
-		password='enoN'
-		self.assertFalse(authenticate(username, password))
+    def test_null_username(self):
+        print("Testing authenticate function with empty username")
+        username=None
+        password='enoN'
+        self.assertFalse(authenticate(username, password))
 
-	def test_null_password(self):
-		print("Testing authenticate function with empty password")
-		username='None'
-		password=None
-		self.assertFalse(authenticate(username, password))
+    def test_null_password(self):
+        print("Testing authenticate function with empty password")
+        username='None'
+        password=None
+        self.assertFalse(authenticate(username, password))
 
-	def test_valid_login(self):
-		print("Testing valid combination")
-		username='foo'
-		password='oof'
-		self.assertTrue(authenticate(username, password))
+    def test_valid_login(self):
+        print("Testing valid combination")
+        username='foo'
+        password='oof'
+        self.assertTrue(authenticate(username, password))
 
 
 ########################################################################
 
 def main():
-	unittest.main()
+    unittest.main()
 
 if __name__ == "__main__":
-	main()
+    main()
