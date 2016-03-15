@@ -7,7 +7,7 @@ Latest version can be found at https://github.com/letuananh/pydemo
 
 References:
 Python input & output:
-	https://docs.python.org/2/tutorial/inputoutput.html#reading-and-writing-files
+    https://docs.python.org/2/tutorial/inputoutput.html#reading-and-writing-files
 
 @author: Le Tuan Anh <tuananh.ke@gmail.com>
 '''
@@ -45,41 +45,41 @@ __status__ = "Prototype"
 # A function to read names from a file, each name on a line
 #------------------------------------------------------------------------------
 def read_names_from_file(file_name):
-	''' Read names from a file, each name on a line.
-		Any line started with a hash (#) is a comment and will be ignored
+    ''' Read names from a file, each name on a line.
+        Any line started with a hash (#) is a comment and will be ignored
 
-		Arguments:
-		file_name -- Path to input file (i.e. my_file.txt or /home/user/my_file.txt)
-	'''
-	names = [] # read names will be stored in this list
+        Arguments:
+        file_name -- Path to input file (i.e. my_file.txt or /home/user/my_file.txt)
+    '''
+    names = [] # read names will be stored in this list
 
-	with open(file_name, 'r') as names_file:
-		for line in names_file:
-			# if not a comment line
-			if not line.startswith('#'):
-				names.append(line.strip()) # add to list
+    with open(file_name, 'r') as names_file:
+        for line in names_file:
+            # if not a comment line
+            if not line.startswith('#'):
+                names.append(line.strip()) # add to list
 
-	return names
+    return names
 
 #------------------------------------------------------------------------------
 # Define the main method
 #------------------------------------------------------------------------------
 def main():
-	'''This application will demonstrate how to read and write text file content with Python
-	'''
-	girl_names = read_names_from_file('girl_names_2014.txt')
-	boy_names = read_names_from_file('boy_names_2014.txt')
+    '''This application will demonstrate how to read and write text file content with Python
+    '''
+    girl_names = read_names_from_file('data/girl_names_2014.txt')
+    boy_names = read_names_from_file('data/boy_names_2014.txt')
 
-	with open('couple_2014.txt', 'w') as couple_file:
-		# Zip returns a list of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables.
-		# Read more about zip here: https://docs.python.org/2/library/functions.html#zip
-		for (girl_name, boy_name) in zip(girl_names, boy_names): 
-			# write each couple to file
-			couple_file.write('%s will marry %s in 18 years.\n' % (boy_name, girl_name))
+    with open('data/couple_2014.txt', 'w') as couple_file:
+        # Zip returns a list of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables.
+        # Read more about zip here: https://docs.python.org/2/library/functions.html#zip
+        for (girl_name, boy_name) in zip(girl_names, boy_names): 
+            # write each couple to file
+            couple_file.write('%s will marry %s in 18 years.\n' % (boy_name, girl_name))
 
 #------------------------------------------------------------------------------
 # Check if this file is run as an application
 #------------------------------------------------------------------------------
 if __name__ == "__main__":
-	# If the condition is true, execute the main method
-	main()
+    # If the condition is true, execute the main method
+    main()
