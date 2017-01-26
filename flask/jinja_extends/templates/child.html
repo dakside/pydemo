@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+<style>
+ header {
+   font-size: 2em;
+   text-align: center;
+   border-radius: 3px;
+   padding: 30px;
+   background: lightgray;
+ }
+ h1 {
+   color: green;
+ }
+ p {
+   font-family: "Courier New", "Lucida Console", Monospace;
+ }
+ footer {
+   text-align: center;
+   background: lightgray;
+   padding: 10px;
+ }
+ article {
+   padding: 20px;
+ }
+</style>
+{% endblock %}
+
+{% block header %}
+<header>Sherlock Holmes short stories</header>
+{% endblock %}
+
+{% block main %}
+<article>
+  <h1>{{ title }}</h1>
+  {% for paragraph in paragraphs %}
+  <p>{{ paragraph }}</p>
+  {% endfor %}
+  Read more at: <a href="https://sherlock-holm.es/">https://sherlock-holm.es/</a>
+</article>
+{% endblock %}
+
+{% block footer %}
+Created by Le Tuan Anh &lt;tuananh.ke@gmail.com&gt;
+{% endblock %}
