@@ -40,7 +40,7 @@ References:
 
 __author__ = "Le Tuan Anh <tuananh.ke@gmail.com>"
 __copyright__ = "Copyright 2015, pydemo"
-__credits__ = [ "Le Tuan Anh" ]
+__credits__ = ["Le Tuan Anh"]
 __license__ = "MIT"
 __version__ = "0.1"
 __maintainer__ = "Le Tuan Anh"
@@ -50,12 +50,12 @@ __status__ = "Prototype"
 ########################################################################
 
 import sys
-import os
 import argparse
 
 ########################################################################
 
 def echo(input_str):
+    ''' Print a string to stdout '''
     print(input_str)
 
 ########################################################################
@@ -67,7 +67,7 @@ def main():
     # It's easier to create a user-friendly console application by using argparse
     # See reference at the top of this script
     parser = argparse.ArgumentParser(description="Display a line of text.")
-    
+
     # Positional argument(s)
     parser.add_argument('input', help='The string to be printed.')
 
@@ -89,10 +89,10 @@ def main():
         if args.input:
             echo(args.input)
         elif not args.quiet:
-            print("Eh, I have nothing to print (You can shut me up by passing in the option -q) ...")
+            print("Eh, I have nothing to print (Want me to shut up? use the option -q) ...")
         if args.verbose:
             print("Bye sweetie ...")
-    pass
+
 
 if __name__ == "__main__":
     main()

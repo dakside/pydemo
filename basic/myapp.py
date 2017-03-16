@@ -38,7 +38,7 @@ References:
 
 __author__ = "Le Tuan Anh <tuananh.ke@gmail.com>"
 __copyright__ = "Copyright 2015, pydemo"
-__credits__ = [ "Le Tuan Anh" ]
+__credits__ = ["Le Tuan Anh"]
 __license__ = "MIT"
 __version__ = "0.1"
 __maintainer__ = "Le Tuan Anh"
@@ -62,12 +62,11 @@ def main():
     '''
     print("myapp.main's __name__: %s" % (__name__))
     uberfunction("myapp.main")
-    
+
     # We can call the main method in mylib as well
     from mylib import main as mylibmain
     mylibmain()
-    
-    pass
+
 
 if __name__ == "__main__":
     main()
