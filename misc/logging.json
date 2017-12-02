@@ -49,8 +49,8 @@
 
     "loggers": {
         "__main__": {
-            "level": "WARNING",
-            "handlers": ["file_handler_info", "file_handler_verbose"],
+            "level": "DEBUG",
+            "handlers": ["file_handler_verbose", "file_handler_info"],
             "propagate": "no"
         }
     },
