@@ -21,27 +21,27 @@ References:
 
 # Copyright (c) 2015, Le Tuan Anh <tuananh.ke@gmail.com>
 #
-#Permission is hereby granted, free of charge, to any person obtaining a copy
-#of this software and associated documentation files (the "Software"), to deal
-#in the Software without restriction, including without limitation the rights
-#to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#copies of the Software, and to permit persons to whom the Software is
-#furnished to do so, subject to the following conditions:
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
 #
-#The above copyright notice and this permission notice shall be included in
-#all copies or substantial portions of the Software.
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
 #
-#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-#IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-#FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-#AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-#THE SOFTWARE.
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
 
 __author__ = "Le Tuan Anh <tuananh.ke@gmail.com>"
 __copyright__ = "Copyright 2015, pydemo"
-__credits__ = [ "Le Tuan Anh" ]
+__credits__ = []
 __license__ = "MIT"
 __version__ = "0.1"
 __maintainer__ = "Le Tuan Anh"
@@ -50,11 +50,9 @@ __status__ = "Prototype"
 
 ########################################################################
 
-import sys
-import os
-import argparse
 import unittest
 from daklib.demolib import authenticate
+
 
 ########################################################################
 
@@ -62,33 +60,30 @@ class TestDemoLib(unittest.TestCase):
 
     def test_null_args(self):
         print("Testing authenticate function with empty args")
-        username=None
-        password=None
+        username = None
+        password = None
         self.assertFalse(authenticate(username, password))
 
     def test_null_username(self):
         print("Testing authenticate function with empty username")
-        username=None
-        password='enoN'
+        username = None
+        password = 'enoN'
         self.assertFalse(authenticate(username, password))
 
     def test_null_password(self):
         print("Testing authenticate function with empty password")
-        username='None'
-        password=None
+        username = 'None'
+        password = None
         self.assertFalse(authenticate(username, password))
 
     def test_valid_login(self):
         print("Testing valid combination")
-        username='foo'
-        password='oof'
+        username = 'foo'
+        password = 'oof'
         self.assertTrue(authenticate(username, password))
 
 
 ########################################################################
 
-def main():
-    unittest.main()
-
 if __name__ == "__main__":
-    main()
+    unittest.main()
