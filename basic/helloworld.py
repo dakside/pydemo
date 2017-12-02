@@ -7,22 +7,23 @@
 # If you still have no idea, just copy those two to your file :P
 # To run this file, you can try:
 # python helloworld.py
-# or 
+# or
 # ./helloworld.py
 
 
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Define the main method
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 def main():
     '''The main entry of the application (i.e. The tasks should start from here)
     '''
-    print("Hello World") # Print the text `Hello World` to the screen
-    pass # Do nothing, yes Python has a statement to do nothing :D
+    print("Hello World")  # Print the text `Hello World` to the screen
+    pass  # Do nothing, yes Python has a statement to do nothing :D
 
-#------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
 # Check if this file is run as an application
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 if __name__ == "__main__":
     # If the condition is true, execute the main method
     main()
