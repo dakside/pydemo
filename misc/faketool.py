@@ -3,7 +3,7 @@
 
 '''
 This is a demo Python tool which counts the lines of any give file.
-Latest version can be found at https://github.com/letuananh/pydemo
+Latest version can be found at https://github.com/dakside/pydemo
 
 References:
 argparse module:
@@ -79,7 +79,7 @@ def count_lines(filename, quiet=True):
 
 
 # ----------------------------------------------------------
-# MAIN
+# Main
 # ----------------------------------------------------------
 
 def main():

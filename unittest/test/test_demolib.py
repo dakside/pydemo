@@ -3,7 +3,7 @@
 
 '''
 Script for testing daklib.demolib library
-Latest version can be found at https://github.com/letuananh/pydemo
+Latest version can be found at https://github.com/dakside/pydemo
 
 References:
     Python documentation:
@@ -39,22 +39,13 @@ References:
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-__author__ = "Le Tuan Anh <tuananh.ke@gmail.com>"
-__copyright__ = "Copyright 2015, pydemo"
-__credits__ = []
-__license__ = "MIT"
-__version__ = "0.1"
-__maintainer__ = "Le Tuan Anh"
-__email__ = "<tuananh.ke@gmail.com>"
-__status__ = "Prototype"
-
-########################################################################
-
 import unittest
 from daklib.demolib import authenticate
 
 
-########################################################################
+# ------------------------------------------------------------------------------
+# Test cases
+# ------------------------------------------------------------------------------
 
 class TestDemoLib(unittest.TestCase):
 
@@ -83,7 +74,9 @@ class TestDemoLib(unittest.TestCase):
         self.assertTrue(authenticate(username, password))
 
 
-########################################################################
+# ------------------------------------------------------------------------------
+# Main
+# ------------------------------------------------------------------------------
 
 if __name__ == "__main__":
     unittest.main()
