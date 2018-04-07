@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-Script for testing daklib.demolib library
+A sample user authentication module
 Latest version can be found at https://github.com/letuananh/pydemo
 
 References:
@@ -39,56 +39,22 @@ References:
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-__author__ = "Le Tuan Anh <tuananh.ke@gmail.com>"
-__copyright__ = "Copyright 2017, pydemo"
-__credits__ = []
-__license__ = "MIT"
-__version__ = "0.1"
-__maintainer__ = "Le Tuan Anh"
-__email__ = "<tuananh.ke@gmail.com>"
-__status__ = "Prototype"
-
-########################################################################
-
-import sys
-import os
-import argparse
-import unittest
-from uberapp.daklib.demolib import authenticate
-
-########################################################################
-
-class TestDemoLib(unittest.TestCase):
-
-    def test_null_args(self):
-        print("Testing authenticate function with empty args")
-        username=None
-        password=None
-        self.assertFalse(authenticate(username, password))
-
-    def test_null_username(self):
-        print("Testing authenticate function with empty username")
-        username=None
-        password='enoN'
-        self.assertFalse(authenticate(username, password))
-
-    def test_null_password(self):
-        print("Testing authenticate function with empty password")
-        username='None'
-        password=None
-        self.assertFalse(authenticate(username, password))
-
-    def test_valid_login(self):
-        print("Testing valid combination")
-        username='foo'
-        password='oof'
-        self.assertTrue(authenticate(username, password))
+from uberapp.data import usernames
 
 
-########################################################################
+# ------------------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------------------
 
-def main():
-    unittest.main()
+user_db = {n: n[::-1] for n in usernames}
 
-if __name__ == "__main__":
-    main()
+
+# ------------------------------------------------------------------------------
+# Functions
+# ------------------------------------------------------------------------------
+
+def authenticate(username, password):
+    if username not in user_db:
+        return False
+    else:
+        return password == user_db[username]

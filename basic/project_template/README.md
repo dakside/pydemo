@@ -2,7 +2,7 @@
 
 This is a sample Python project structure.
 
-Project structure:
+## Project structure:
 
 ```
 .
@@ -25,3 +25,10 @@ Project structure:
 ```
 
 Adapted from: http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/
+
+## Important files:
+
+- MANIFEST.in
+  Config which non-code files to be distributed
+- setup.py
+  Setup script, use `setup.py sdist` or `releash.sh` to build release package

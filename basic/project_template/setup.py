@@ -3,7 +3,7 @@
 
 '''
 Setup script for uberapp (Change this to your amazing project name).
-Latest version can be found at https://github.com/letuananh/pydemo
+Latest version can be found at https://github.com/dakside/pydemo
 
 References:
     Python documentation:
@@ -13,55 +13,19 @@ References:
     PEP 257 - Python Docstring Conventions:
         https://www.python.org/dev/peps/pep-0257/
 
-@author: Le Tuan Anh <tuananh.ke@gmail.com>
+:copyright: (c) 2018 Le Tuan Anh <tuananh.ke@gmail.com>
+:license: MIT, see LICENSE for more details.
 '''
 
-# Copyright (c) 2017, Le Tuan Anh <tuananh.ke@gmail.com>
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-# THE SOFTWARE.
-
-__author__ = "Le Tuan Anh <tuananh.ke@gmail.com>"
-__copyright__ = "Copyright 2015, pydemo"
-__credits__ = []
-__license__ = "MIT"
-__version__ = "0.1"
-__maintainer__ = "Le Tuan Anh"
-__email__ = "<tuananh.ke@gmail.com>"
-__status__ = "Prototype"
-
-########################################################################
-
-from setuptools import setup, find_packages
-from setuptools.command.test import test as TestCommand
 import io
-import codecs
 import os
-import sys
-
-from uberapp import uberapp
+from setuptools import setup
 
 ########################################################################
 
-
-here = os.path.abspath(os.path.dirname(__file__))
 
 def read(*filenames, **kwargs):
+    ''' Read contents of multiple files and join them together '''
     encoding = kwargs.get('encoding', 'utf-8')
     sep = kwargs.get('sep', '\n')
     buf = []
@@ -70,34 +34,45 @@ def read(*filenames, **kwargs):
             buf.append(f.read())
     return sep.join(buf)
 
-long_description = read('README.md', 'CHANGES.md')
+
+readme_file = 'README.rst' if os.path.isfile('README.rst') else 'README.md'
+long_description = read(readme_file)
+pkg_info = {}
+exec(read('uberapp/__version__.py'), pkg_info)
+
+# packages to distribute
+packages = ['uberapp',
+            'uberapp.data']
+# non-code files to distribute
+package_data = {'uberapp': ['data/*.txt']}
 
 setup(
-    name='uberapp',
-    version=uberapp.__version__,
-    url='https://github.com/letuananh/pydemo',
-    license='MIT License',
-    author='Le Tuan Anh',
+    name='uberapp',  # package file name (<package-name>-version.tar.gz)
+    project_urls={
+        "Bug Tracker": "https://github.com/dakside/pydemo/issues",
+        "Source Code": "https://github.com/dakside/pydemo"
+    },
     tests_require=[],
     install_requires=[],
-    author_email='tuananh.ke@gmail.com',
-    description='An uber software which does not do anything useful',
-    long_description=long_description,
-    packages=['uberapp'],
-    include_package_data=True,
-    platforms='any',
+    keywords="nlp",
+    # Reference: https://pypi.python.org/pypi?%3Aaction=list_classifiers
+    classifiers=['Programming Language :: Python',
+                 'Development Status :: 2 - Pre-Alpha',
+                 'Environment :: Plugins',
+                 'Intended Audience :: Developers',
+                 'License :: OSI Approved :: {}'.format(pkg_info['__license__']),
+                 'Operating System :: OS Independent',
+                 'Topic :: Software Development :: Libraries :: Python Modules'],
     test_suite='test',
-    classifiers = [
-        'Programming Language :: Python',
-        'Development Status :: 0.1 - Alpha',
-        'Natural Language :: English',
-        'Environment :: Console Application',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: MIT License',
-        'Operating System :: OS Independent',
-        'Topic :: Software Development :: Libraries :: Python Modules',
-        ]#,
-    #extras_require={
-        # 'testing': ['pytest'],
-    #}
+    platforms='any',
+    version=pkg_info['__version__'],
+    url=pkg_info['__url__'],
+    license=pkg_info['__license__'],
+    author=pkg_info['__author__'],
+    author_email=pkg_info['__email__'],
+    description=pkg_info['__description__'],
+    long_description=long_description,
+    packages=packages,
+    package_data=package_data,
+    include_package_data=True
 )

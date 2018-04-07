@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-A sample Python library to demonstrate basic unit testting
+Script for testing uberapp
 Latest version can be found at https://github.com/letuananh/pydemo
 
 References:
@@ -16,7 +16,8 @@ References:
     PEP 257 - Python Docstring Conventions:
         https://www.python.org/dev/peps/pep-0257/
 
-@author: Le Tuan Anh <tuananh.ke@gmail.com>
+:copyright: (c) 2018 Le Tuan Anh <tuananh.ke@gmail.com>
+:license: MIT, see LICENSE for more details.
 '''
 
 # Copyright (c) 2017, Le Tuan Anh <tuananh.ke@gmail.com>
@@ -39,35 +40,51 @@ References:
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-__author__ = "Le Tuan Anh <tuananh.ke@gmail.com>"
-__copyright__ = "Copyright 2017, pydemo"
-__credits__ = []
-__license__ = "MIT"
-__version__ = "0.1"
-__maintainer__ = "Le Tuan Anh"
-__email__ = "<tuananh.ke@gmail.com>"
-__status__ = "Prototype"
+########################################################################
+
+import unittest
+from uberapp.userlib import authenticate
+
 
 ########################################################################
 
-import sys
-import os
-import argparse
+class TestDemoLib(unittest.TestCase):
 
-########################################################################
+    def test_all_usernames(self):
+        print("Test reading usernames from text file")
+        from uberapp.data import usernames
+        self.assertEqual(usernames, ['foo', 'boo', 'bar'])
 
-usernames = ['foo', 'boo', 'bar']
+    def test_null_args(self):
+        print("Testing authenticate function with empty args")
+        username = None
+        password = None
+        self.assertFalse(authenticate(username, password))
 
-def authenticate(username, password):
-    if password is None or username not in usernames:
-        return False
-    else:
-        return password == username[::-1]
+    def test_null_username(self):
+        print("Testing authenticate function with empty username")
+        username = None
+        password = 'enoN'
+        self.assertFalse(authenticate(username, password))
+
+    def test_null_password(self):
+        print("Testing authenticate function with empty password")
+        username = 'None'
+        password = None
+        self.assertFalse(authenticate(username, password))
+
+    def test_valid_login(self):
+        print("Testing valid combination")
+        username = 'foo'
+        password = 'oof'
+        self.assertTrue(authenticate(username, password))
+
 
 ########################################################################
 
 def main():
-    print("I'm a library, not an app")
+    unittest.main()
+
 
 if __name__ == "__main__":
     main()

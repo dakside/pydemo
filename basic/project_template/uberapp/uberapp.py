@@ -36,21 +36,12 @@ References:
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-__author__ = "Le Tuan Anh <tuananh.ke@gmail.com>"
-__copyright__ = "Copyright 2017, pydemo"
-__credits__ = []
-__license__ = "MIT"
-__version__ = "0.1"
-__maintainer__ = "Le Tuan Anh"
-__email__ = "<tuananh.ke@gmail.com>"
-__status__ = "Prototype"
-
 ########################################################################
 
 import sys
-import os
 import argparse
 from uberapp.daklib.demolib import authenticate
+
 
 ########################################################################
 
@@ -61,7 +52,7 @@ def main():
     # It's easier to create a user-friendly console application by using argparse
     # See reference at the top of this script
     parser = argparse.ArgumentParser(description="Display a line of text.")
-    
+
     # Positional argument(s)
     parser.add_argument('username', help='Your username')
     parser.add_argument('password', help='Your password')
@@ -90,6 +81,7 @@ def main():
         if args.verbose:
             print("Bye sweetie ...")
     pass
+
 
 if __name__ == "__main__":
     main()
