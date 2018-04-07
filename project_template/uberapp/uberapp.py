@@ -3,7 +3,7 @@
 
 '''
 A sample app.
-Latest version can be found at https://github.com/letuananh/pydemo
+Latest version can be found at https://github.com/dakside/pydemo
 
 References:
     Python documentation:
@@ -36,14 +36,14 @@ References:
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-########################################################################
-
 import sys
 import argparse
-from uberapp.daklib.demolib import authenticate
+from uberapp.userlib import authenticate
 
 
-########################################################################
+# ------------------------------------------------------------------------------
+# Main
+# ------------------------------------------------------------------------------
 
 def main():
     '''Main entry of this demo application.

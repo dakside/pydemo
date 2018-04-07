@@ -3,7 +3,7 @@
 
 '''
 Script for testing uberapp
-Latest version can be found at https://github.com/letuananh/pydemo
+Latest version can be found at https://github.com/dakside/pydemo
 
 References:
     Python documentation:
@@ -40,13 +40,13 @@ References:
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-########################################################################
-
 import unittest
 from uberapp.userlib import authenticate
 
 
-########################################################################
+# ------------------------------------------------------------------------------
+# Test cases
+# ------------------------------------------------------------------------------
 
 class TestDemoLib(unittest.TestCase):
 
@@ -80,11 +80,9 @@ class TestDemoLib(unittest.TestCase):
         self.assertTrue(authenticate(username, password))
 
 
-########################################################################
-
-def main():
-    unittest.main()
-
+# ------------------------------------------------------------------------------
+# Main
+# ------------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    main()
+    unittest.main()

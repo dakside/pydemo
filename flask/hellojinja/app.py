@@ -3,7 +3,7 @@
 
 '''
 Hello Flask
-Latest version can be found at https://github.com/letuananh/pydemo
+Latest version can be found at https://github.com/dakside/pydemo
 
 References:
     Python documentation:
@@ -41,7 +41,7 @@ References:
 
 __author__ = "Le Tuan Anh <tuananh.ke@gmail.com>"
 __copyright__ = "Copyright 2016, pydemo"
-__credits__ = ["Le Tuan Anh"]
+__credits__ = []
 __license__ = "MIT"
 __version__ = "0.1"
 __maintainer__ = "Le Tuan Anh"

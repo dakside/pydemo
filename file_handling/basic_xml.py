@@ -3,7 +3,7 @@
 
 '''
 Basic XML processing
-Latest version can be found at https://github.com/letuananh/pydemo
+Latest version can be found at https://github.com/dakside/pydemo
 
 References:
     Python documentation:
