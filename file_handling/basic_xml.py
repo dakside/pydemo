@@ -68,18 +68,6 @@ Person = namedtuple('Person', ['name', 'age'])
 
 
 # -------------------------------------------------------------------------------
-# FUNCTIONS
-# -------------------------------------------------------------------------------
-
-def create_xml_file(args):
-    pass
-
-
-def dev_mode():
-    print("I'm working on this ...")
-
-
-# -------------------------------------------------------------------------------
 # MAIN
 # -------------------------------------------------------------------------------
 
@@ -121,6 +109,11 @@ def main():
             # and then we can clear the element to save memory
             element.clear()
 
+    with open(COUPLES_XML_FILE, 'r') as infile:
+        print("Created XML content")
+        print("-" * 40)
+        print(infile.read())
+        print("-" * 40)
     # Done!
     pass
 

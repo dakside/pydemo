@@ -1,0 +1,12 @@
+#+TITLE: Installation
+
+* pau_demo
+This script works on Python 2.
+
+#+BEGIN_SRC bash
+# pyaudio REQUIRES portaudio dev package, it needs to be installed first
+dnf install portaudio-devel
+
+# install pyaudio
+pip install pyaudio
+#+END_SRC
