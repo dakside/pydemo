@@ -1,0 +1,20 @@
+Source: https://docs.djangoproject.com/en/2.2/intro/tutorial02/
+
+* Guide
+# to setup a virtual environment
+/usr/bin/python3 -m venv .env
+. .env/bin/activate
+
+# install required packages
+pip install -r requirements.txt 
+python -m django --version
+
+# setup project
+django-admin startproject mysite
+
+# run created app
+cd mysite
+python3 manage.py runserver
+
+# to create a django app
+python manage.py startapp polls
